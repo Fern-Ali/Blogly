@@ -1,0 +1,12 @@
+﻿{% extends 'base.html' %}
+
+{% block title %} Edit your user here! {% endblock %}
+
+{% block tablehead%}
+
+
+ {% endblock %}
+{% for user in users%} {{users.first_name}} {{first_name}} {% endfor%}
+
+
+{% block form_action%}<form method="POST" action="/edit/{{id}}"> {% endblock %}

@@ -1,0 +1,96 @@
+﻿{% extends 'base.html' %}
+
+{% block title %} VIP Backstage! Featuring {{first_name}}! {% endblock %}
+
+{% block tablehead%}
+
+
+ {% endblock %}
+
+{% block testingremove %}
+
+
+
+<div class=" row justify-content-center ">
+    <!--<label for="response" class="form-control shadow m-3"></label>-->
+
+    <div class="col-4 checkboxgroup  fun m-2 p-3">
+        <!--<label for="lname"> Amount to convert:</label><br>-->
+
+        <div class="row justify-content-center">
+            <p class="display">{{first_name}} {{last_name}}</p>
+
+
+
+        </div>
+        <div class="row justify-content-center">
+            <img class="icon" src={{image_url}} />
+
+
+
+        </div>
+
+
+
+
+
+
+
+    </div>
+
+
+    <div class=" col-8 checkboxgroup   p-3">
+        <!--<label for="lname"> Amount to convert:</label><br>-->
+        <div class="row justify-content-center">
+            <button class="btn btn-success  shadow" id={% block buttonid %}btn{% endblock %} type="submit">{% block buttontxt %}Back to Users List{% endblock %}</button>
+        </div>
+
+    </div>
+
+
+
+</div>
+
+
+
+    {% endblock %}
+
+
+
+{% block insert_edit %}
+
+
+<section>
+    
+    <form method="GET" action="/edit/{{id}}" id="edit">
+        <div class=" col-12 checkboxgroup   p-3">
+            <!--<label for="lname"> Amount to convert:</label><br>-->
+            <div class="row justify-content-center">
+                <button class="btn btn-success  shadow" id=btn type="submit"><a class="edit_link" href="/edit/{{id}}">Edit User</a></button>
+            </div>
+
+        </div>
+
+    </form>
+</section>
+
+
+{% endblock %}
+
+
+{% block point_tracker %}
+<section>
+    <form method="GET" action="/delete/{{id}}" id="delete">
+        <div class=" col-12 checkboxgroup   p-3">
+            <!--<label for="lname"> Amount to convert:</label><br>-->
+            <div class="row justify-content-center">
+                <button class="btn btn-success  shadow" id=btn type="submit">Delete User</button>
+            </div>
+
+        </div>
+
+    </form>
+</section>{% endblock %}
+
+
+{% block form_action%} <form method="GET" action="/users"> {% endblock %}
