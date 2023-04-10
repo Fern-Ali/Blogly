@@ -1,6 +1,6 @@
 ﻿{% extends 'base.html' %}
 
-{% block title %} Edit your user here! {% endblock %}
+{% block title %} Edit your post here! {% endblock %}
 
 {% block tablehead%}
 
@@ -9,7 +9,7 @@
 {% for user in users%} {{users.first_name}} {{first_name}} {% endfor%}
 
 
-{% block form_action%}<form method="POST" action="/edit/{{id}}">
+{% block form_action%}<form method="POST" action="/posts/{{specified_post[0].id}}/edit">
     {% endblock %}
 
 
@@ -47,13 +47,13 @@
         <div class="col-6 checkboxgroup {% block add_home_class_to_container %} {% endblock %} fun  p-3">
 
             {% block include_submit%}
-            <input type="text" class="form-control mb-2 shadow placeholder" id="first_name" name="first_name" value="" placeholder="First Name">
-            <input type="text" class="form-control mb-2 shadow placeholder" id="last_name" name="last_name" value="" placeholder="Last Name">
-            <input type="text" class="form-control mb-2 shadow placeholder" id="image_url" name="image_url" value="" placeholder="User Image URL">
+            <input type="text" class="form-control mb-2 shadow placeholder" id="title" name="title" value="" placeholder="Title">
+            <input type="text" class="form-control mb-2 shadow placeholder" id="content" name="content" value="" placeholder="Content">
+            <input type="text" class="form-control mb-2 shadow placeholder" id="image_url" name="image_url" value="" placeholder="Image URL">
             {% endblock %}
             {% block label %}{% endblock %}
             <div class="row justify-content-center">
-                <button class="btn btn-success  mt-2 shadow" id=btn type="submit" onclick={% block buttononclick %}#{% endblock %}>Update {{specified_user[0].first_name}}</button>
+                <button class="btn btn-success  mt-2 shadow" id=btn type="submit" onclick={% block buttononclick %}#{% endblock %}>Update {{specified_user[0].first_name}}'s post</button>
             </div>
 
             {% block errorflash %}{% endblock %}
@@ -76,7 +76,7 @@
 
     {% endblock %}
 
- 
+
 
     {% block point_tracker %} {% endblock %}
 

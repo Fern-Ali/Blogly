@@ -16,6 +16,7 @@ h2 {
     text-align: center;
     font-weight: 800;
     margin-bottom: 15px;
+    
 }
 
 .fixheader {
@@ -288,3 +289,20 @@ table {
         color: white;
         text-decoration: none;
     }
+
+
+h6 {
+    text-align: center;
+}
+
+.post_content {
+    border: 3px solid rgba(0, 0, 0, 0.42);
+    background-color: rgba(0, 0, 0, 0.42);
+    border-radius: 5px;
+    margin: 0 auto;
+    min-height: 200px;
+}
+
+.post_text {
+    min-height: 100px;
+}

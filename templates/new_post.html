@@ -1,15 +1,15 @@
-﻿{% extends 'base.html' %}
+﻿    {% extends 'base.html' %}
 
-{% block title %} Edit your user here! {% endblock %}
+    {% block title %} Add a new post here! {{id}} {% endblock %}
 
-{% block tablehead%}
-
-
- {% endblock %}
-{% for user in users%} {{users.first_name}} {{first_name}} {% endfor%}
+    {% block tablehead%}
 
 
-{% block form_action%}<form method="POST" action="/edit/{{id}}">
+    {% endblock %}
+    {% for user in users%} {{users.first_name}} {{first_name}} {% endfor%}
+
+
+    {% block form_action%}<form method="POST" action="/users/{{id}}/posts/new">
     {% endblock %}
 
 
@@ -47,13 +47,13 @@
         <div class="col-6 checkboxgroup {% block add_home_class_to_container %} {% endblock %} fun  p-3">
 
             {% block include_submit%}
-            <input type="text" class="form-control mb-2 shadow placeholder" id="first_name" name="first_name" value="" placeholder="First Name">
-            <input type="text" class="form-control mb-2 shadow placeholder" id="last_name" name="last_name" value="" placeholder="Last Name">
-            <input type="text" class="form-control mb-2 shadow placeholder" id="image_url" name="image_url" value="" placeholder="User Image URL">
+            <input type="text" class="form-control mb-2 shadow placeholder" id="title" name="title" value="" placeholder="Title">
+            <input type="text" class="form-control mb-2 shadow placeholder" id="content" name="content" value="" placeholder="Content">
+            <input type="text" class="form-control mb-2 shadow placeholder" id="image_url" name="image_url" value="" placeholder="Thumbnail">
             {% endblock %}
             {% block label %}{% endblock %}
             <div class="row justify-content-center">
-                <button class="btn btn-success  mt-2 shadow" id=btn type="submit" onclick={% block buttononclick %}#{% endblock %}>Update {{specified_user[0].first_name}}</button>
+                <button class="btn btn-success  mt-2 shadow" id=btn type="submit" onclick={% block buttononclick %}#{% endblock %}>New post!</button>
             </div>
 
             {% block errorflash %}{% endblock %}
@@ -63,7 +63,7 @@
         <div class=" col-8 checkboxgroup  p-3 ">
             <!--<label for="lname"> Amount to convert:</label><br>-->
             <div class="row justify-content-center">
-                <button class="btn btn-success mt-2 shadow" id=btn type="submit"><a class="edit_link" href="/users/{{id}}">Return to User Page</a></button>
+                <button class="btn btn-success  shadow" id={% block buttonid %}btn{% endblock %} type="submit">{% block buttontxt %}Back to Users List{% endblock %}</button>
             </div>
 
         </div>
@@ -76,7 +76,7 @@
 
     {% endblock %}
 
- 
+
 
     {% block point_tracker %} {% endblock %}
 
