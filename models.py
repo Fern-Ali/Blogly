@@ -61,3 +61,31 @@ class Post(db.Model):
                         #FIGURE OUT HOW TO ADD CASCADE. ASK PUSHPITA. FOR NOW SET NULLABLE TO TRUE SO WE CAN RESET TABLE. Ok that doesnt work anyway. figure it out later.
                         nullable=False)
     #post_user = db.relationship('Department', backref='employees')
+
+
+class PostTag(db.Model):
+    """Tag on a post."""
+
+    __tablename__ = "posts_tags"
+
+    post_id = db.Column(db.Integer, 
+                        db.ForeignKey('posts.id'), 
+                        primary_key=True)
+    tag_id = db.Column(db.Integer, 
+                       db.ForeignKey('tags.id'), 
+                       primary_key=True)
+
+
+
+class Tag(db.Model):
+    __tablename__ = "tags"
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.Text, nullable=False, unique=True)
+
+    posts = db.relationship(
+        'Post',
+        secondary="posts_tags",
+        # cascade="all,delete",
+        backref="tags",
+    )
